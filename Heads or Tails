@@ -2,19 +2,28 @@
 #include <stdlib.h>
 #include <time.h>
 
-int roll_dice() {
-    return rand() % 6 + 1; 
+void toss_coin(int round) {
+    int result = rand() % 2;
+    printf("Round %d: %s\n", round, result ? "Heads" : "Tails");
 }
 
 int main() {
-　　　printf("Rolling dice...\n");
-    srand(time(NULL)); 
+    int heads = 0, tails = 0;
 
-    int dice1 = roll_dice();
-    int dice2 = roll_dice();
-   printf(" Heads: %d, Tails: %d\n",dice1,dice2);
-    
+    srand(time(NULL));
+    printf("Tossing a coin...\n");
+
+    for (int i = 1; i <= 3; i++) {
+        int result = rand() % 2;
+        if (result) {
+            heads++;
+        } else {
+            tails++;
+        }
+        toss_coin(i);
+    }
+
+    printf("Heads: %d, Tails: %d\n", heads, tails);
 
     return 0;
-
 }
