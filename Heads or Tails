@@ -12,11 +12,8 @@ int main() {
 
     int dice1 = roll_dice();
     int dice2 = roll_dice();
-    int sum = dice1 + dice2;
-
-    printf("Dice 1: %d\n", dice1);
-    printf("Dice 2: %d\n", dice2);
-    printf("Sum: %d\n", sum);
+   printf(" Heads: %d, Tails: %d\n",dice1,dice2);
+    
 
     return 0;
 
