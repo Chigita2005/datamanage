@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void toss_coin(int round) {
+    int result = rand() % 2;
+    printf("Round %d: %s\n", round, result ? "Heads" : "Tails");
+}
+
+int main() {
+    char name[50];
+    int heads = 0, tails = 0;
+
+    printf("Who are you?\n> ");
+    scanf("%s", name);
+    printf("Hello, %s!\n", name);
+
+    srand(time(NULL));
+    printf("Tossing a coin...\n");
+
+    for (int i = 1; i <= 3; i++) {
+        int result = rand() % 2;
+        if (result) {
+            heads++;
+        } else {
+            tails++;
+        }
+        toss_coin(i);
+    }
+
+    printf("Heads: %d, Tails: %d\n", heads, tails);
+
+    if (heads > tails) {
+        printf("%s won!\n", name);
+    } else {
+        printf("%s lost!\n", name);
+    }
+
+    return 0;
+}
